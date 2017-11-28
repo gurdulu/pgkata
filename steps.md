@@ -8,8 +8,8 @@
 
 ## Database schema
 
-Have a look at the [database diagram](diagram.png) and try to imagine the database definition (primary keys,
-relationships, data types, constraints).
+Have a look at the [database diagram](diagram.png) and try to imagine the
+database definition (primary keys, relationships, data types, constraints).
 
 ## Create the database __pgkata__
 
@@ -20,6 +20,8 @@ createdb pgkata
 ```
 
 ## Develop a schema based on the requirements
+
+Create a new file __100-CREATE.sql__
 
 For each table created pay attention to:
 
@@ -60,7 +62,7 @@ For each table created pay attention to:
 ### Table __awards__
 
 * create the table __awards__
-* pay attention to the type of the field _time_limit_
+* pay attention to the type of the field __time_limit__
 * does the table have any foreign key reference?
 * how can you create a many-to-many relationship?  
 
@@ -69,9 +71,23 @@ For each table created pay attention to:
 * create the table __events__
 * does the table have any foreign key reference?
 * can the fields __category__ and __difficulty__ be a separate TYPE?
-* __abstract__ and __description__ are already defined as part of the __profiles__ table. Can you re-use them?
+* __abstract__ and __description__ are already defined as part of the
+  __profiles__ table. Can you re-use them?
 
 ### Table __user_registrations__
 
 * create the table __user_registrations__
 * does the table have any foreign key reference?
+
+## Add fixtures to the tables
+
+Some of the created tables can be pre-populated. Before proceeding think at
+the safest method of populating the tables.
+
+For these steps create a new file __200-INSERTS.sql__.
+
+### Fixture for the table __countries__
+
+* add 20 records to the table __countries__
+* can you write an INSERT with __country__ as only value?
+* can you insert the 20 values using a single statement?
