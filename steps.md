@@ -105,6 +105,7 @@ the safest method of populating the tables.
 ### As staff member I want to add events to my database
 
 > For the steps in this section create a new file __300-ADDEVENT.sql__.
+
 > Repeat the following steps as many times as you like.
 
 #### __events__ and __awards__ records
@@ -116,6 +117,7 @@ the safest method of populating the tables.
 ### As user I want to sign up for an event
 
 > For the steps in this section create a new file __400-REGISTERUSER.sql__.
+
 > Repeat the following steps as many times as you like.
 
 #### __users__, __profiles__, __additional_info__ records
