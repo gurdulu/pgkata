@@ -156,7 +156,7 @@ emanuel;Fantastic rider;2017-05-29;08:27:08
 
 ### Prepare re-usable scripts
 
-You can set variables using `psql` meta-command. Here the relevant section of
+You can set variables using `psql` meta-commands. Here the relevant section of
 the inline help
 
 ```
@@ -186,46 +186,13 @@ With the method you have used for parameterising the scripts above, create a
 script for inserting the values at [events.csv](csvs/events.csv) and
 [users.csv](csvs/users.csv).
 
-Use the following [Python script](scripts/execute.py) for cycle over the CSV
-files and execute your statements
-
-```python
-import sys
-import csv
-from subprocess import call
-
-
-try:
-    csv_filename = sys.argv[1]
-    sql_filename = sys.argv[2]
-    database_name = sys.argv[3]
-except:
-    print('Usage: %s csv_filename sql_filename database_name' % sys.argv[0])
-    sys.exit(1)
-
-
-def build_vars(row):
-    result = []
-    for k, v in row.items():
-        result.append('-v')
-        result.append("%s='%s'" % (k, v))
-    return result
-
-
-with open(csv_filename, 'r') as csv_file:
-    r = csv.DictReader(csv_file, delimiter=';')
-    for row in r:
-        command = ['psql', '-e', ]
-        command += ['-f', sql_filename, ]
-        command += build_vars(row)
-        command.append(database_name)
-        call(command)
-```
+Use the [Python script](scripts/execute.py) for cycle over the CSV files and
+execute your statements.
 
 Example
 
 ```bash
-python execute.py events.csv add_event.sql pgkata
+# python scripts/execute.py events.csv add_event.sql pgkata
 ```
 
 * note that one of the fields is a foreign key, how can you link the two tables
