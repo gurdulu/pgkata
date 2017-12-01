@@ -25,6 +25,8 @@ Read the [scenario](scenario.md) and print out the [diagram](diagram.png).
 
 Start following the [steps](steps.md).
 
+__The steps are called so because you should not try to jump.__
+
 ## Useful commands
 
 __psql__ is a very powerful tool. You can have a look at the options with the command `psql --help`.

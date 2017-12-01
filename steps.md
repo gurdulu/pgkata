@@ -11,7 +11,7 @@
 
 ## Database schema
 
-Have a look at the [database diagram](diagram.png) and try to imagine the
+Have a look at the [database diagram](assets/diagram.png) and try to imagine the
 database definition (primary keys, relationships, data types, constraints).
 
 ## Create the database __pgkata__
@@ -143,7 +143,7 @@ __username__, __event_name__, __date__, __time__
 For example
 
 ```text
-USERNAME;EVENT NAME;DATE;TIME
+USERNAME;EVENT_TITLE;DATE;TIME
 alex;Fantastic rider;2017-05-29;11:42:31
 bob;All the way up there;2017-08-11;10:41:45
 charlize;All the way up there;2017-08-11;9:41:37
@@ -182,11 +182,11 @@ You can achieve the same result using the command line options
 #### Fixtures for __events__, __users__ and __user_registrations__
 
 With the method you have used for parameterising the scripts above, create a
-script for inserting the values at [events.csv](events.csv) and
-[users.csv](users.csv).
+script for inserting the values at [events.csv](csvs/events.csv) and
+[users.csv](csvs/users.csv).
 
-Use the following [Python script](execute.py) for cycle over the CSV files and
-execute your statements
+Use the following [Python script](scripts/execute.py) for cycle over the CSV
+files and execute your statements
 
 ```python
 import sys

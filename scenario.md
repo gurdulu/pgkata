@@ -1,6 +1,7 @@
 # Scenario
 
-Our client is an association that organises [long distance cycling events](https://en.wikipedia.org/wiki/Randonneuring).
+Our client is an association that organises
+[long distance cycling events](https://en.wikipedia.org/wiki/Randonneuring).
 
 The client has commissioned a web application for managing:
 
@@ -10,7 +11,8 @@ The client has commissioned a web application for managing:
 
 ## Initial requirements
 
-Below a description of the tables to create and the list of fields required by the client.
+Below a description of the tables to create and the list of fields required by
+the client.
 
 ### Table `users`
 
@@ -34,19 +36,20 @@ A registered user can (not mandatory data) provide further information.
 
 ### Table `additional_info`
 
-Each user can be asked to answer additional questions. The client wants to be able to disclose to third parties 
-the data in this table but without reference to the personal data.
+Each user can be asked to answer additional questions. The client wants to be
+able to disclose to third parties the data in this table but without reference
+to the personal data.
 
 * preferred bike brand (chosen from a list)
 * are they affected by disabilities
-* do they belong to a cycling group 
+* do they belong to a cycling group
 * which cycling group
 * how many times a week they exercise
 * how many hours a week they exercise
 
 ### Table `login_info`
 
-In addition the client wants to know the user’s activity. 
+In addition the client wants to know the user’s activity.
 
 * login date and time
 * logout date and time
@@ -77,10 +80,12 @@ A user can register to multiple events.
 
 ### Table `awards`
 
-Each participant who ends the race receives an award. The awards vary event by event.
+Each participant who ends the race receives an award. The awards vary event
+by event.
 
 * award name
 * event
 * user
 
-Our goal is to provide a database definition, some initial data and documentation.
+Our goal is to provide a database definition, some initial data and
+documentation.
