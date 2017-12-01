@@ -5,6 +5,7 @@
 * use an IDE preferably with syntax highlighting
 * run the code every time you write a statement
 * split the code in several files
+* try not to jump ahead
 
 > You should be able to execute the statements more than once without errors
   and without changing the structure or the content of the database.
@@ -200,6 +201,7 @@ try:
     database_name = sys.argv[3]
 except:
     print('Usage: %s csv_filename sql_filename database_name' % sys.argv[0])
+    sys.exit(1)
 
 
 def build_vars(row):
@@ -225,3 +227,6 @@ Example
 ```bash
 python execute.py events.csv add_event.sql pgkata
 ```
+
+* note that one of the fields is a foreign key, how can you link the two tables
+  in a single statement?

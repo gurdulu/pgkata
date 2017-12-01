@@ -9,6 +9,7 @@ try:
     database_name = sys.argv[3]
 except:
     print('Usage: %s csv_filename sql_filename database_name' % sys.argv[0])
+    sys.exit(1)
 
 
 def build_vars(row):
