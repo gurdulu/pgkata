@@ -24,7 +24,7 @@ createdb pgkata
 
 ## Develop a schema based on the requirements
 
-> For the steps in this section create a new file __100-CREATE.sql__.
+> For the steps in this section create a new file __100-create.sql__.
 
 For each table defined pay attention to:
 
@@ -86,7 +86,7 @@ For each table defined pay attention to:
 
 ## Fixtures
 
-> For the steps in this section create a new file __200-FIXTURES.sql__.
+> For the steps in this section create a new file __200-fixtures.sql__.
 
 Some of the created tables can be pre-populated. Before proceeding think at
 the safest method of populating the tables.
@@ -104,7 +104,7 @@ the safest method of populating the tables.
 
 ### As staff member I want to add events to my database
 
-> For the steps in this section create a new file __300-ADDEVENT.sql__.
+> For the steps in this section create a new file __add_event.sql__.
 
 > Repeat the following steps as many times as you like.
 
@@ -116,7 +116,7 @@ the safest method of populating the tables.
 
 ### As user I want to sign up for an event
 
-> For the steps in this section create a new file __400-REGISTERUSER.sql__.
+> For the steps in this section create a new file __register_user.sql__.
 
 > Repeat the following steps as many times as you like.
 
@@ -132,18 +132,96 @@ the safest method of populating the tables.
 * can you register the user to the same event more than once?
   (if you can there is an error)
 
-### Prepare reusable scripts
-
-* parameterise the scripts identifying the variables
-* can you execute several times the parameterised scripts?
-
 ### As staff member I want to update the result of a user
 
-> For the steps in this section create a new file __450-REGISTERUSER.sql__.
+> For the steps in this section create a new file __update_user_registration.sql__.
 
 The result are recorded in a CSV having the headers
 
-__USERNAME__, __EVENT__, __TIME__.
+__username__, __event_name__, __date__, __time__
+
+For example
+
+```text
+USERNAME;EVENT NAME;DATE;TIME
+alex;Fantastic rider;2017-05-29;11:42:31
+bob;All the way up there;2017-08-11;10:41:45
+charlize;All the way up there;2017-08-11;9:41:37
+darlene;Fantastic rider;2017-05-29;10:27:08
+emanuel;Fantastic rider;2017-05-29;08:27:08
+```
 
 * using the information in the CSV update the table __user_registrations__
-* parameterise the scripts identifying the variables
+
+### Prepare re-usable scripts
+
+You can set variables using `psql` meta-command. Here the relevant section of
+the inline help
+
+```
+Variables
+  \prompt [TEXT] NAME    prompt user to set internal variable
+  \set [NAME [VALUE]]    set internal variable, or list all if no parameters
+  \unset NAME            unset (delete) internal variable
+```
+
+You can achieve the same result using the command line options
+
+```
+-v, --set=, --variable=NAME=VALUE
+  set psql variable NAME to VALUE
+  (e.g., -v ON_ERROR_STOP=1)
+```
+
+* what method can you use for parameterising the scripts?
+* parameterise the scripts __add_event.sql__, __register_user.sql__ and
+  __update_user_registration.sql__ identifying the variables
+* can you execute several times the parameterised scripts with the same values?
+  (if you can there is an error)
+
+#### Fixtures for __events__, __users__ and __user_registrations__
+
+With the method you have used for parameterising the scripts above, create a
+script for inserting the values at [events.csv](events.csv) and
+[users.csv](users.csv).
+
+Use the following [Python script](execute.py) for cycle over the CSV files and
+execute your statements
+
+```python
+import sys
+import csv
+from subprocess import call
+
+
+try:
+    csv_filename = sys.argv[1]
+    sql_filename = sys.argv[2]
+    database_name = sys.argv[3]
+except:
+    print('Usage: %s csv_filename sql_filename database_name' % sys.argv[0])
+
+
+def build_vars(row):
+    result = []
+    for k, v in row.items():
+        result.append('-v')
+        result.append("%s='%s'" % (k, v))
+    return result
+
+
+with open(csv_filename, 'r') as csv_file:
+    r = csv.DictReader(csv_file, delimiter=';')
+    for row in r:
+        command = ['psql', '-e', ]
+        command += ['-f', sql_filename, ]
+        command += build_vars(row)
+        command.append(database_name)
+        call(command)
+```
+
+Example
+
+```bash
+python execute.py events.csv add_event.sql pgkata
+```

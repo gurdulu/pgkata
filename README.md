@@ -4,7 +4,7 @@ PG Kata is an exercise designed as introduction to [PostgreSQL](https://www.post
 
 ## Pre-requisites
 
-1. PostgreSQL 
+1. PostgreSQL
    For the documentation on how to install it see [PostgreSQL: Downloads](https://www.postgresql.org/download/).
 2. Any editor, preferably with syntax highlighting.
    If you don't have one, install [Atom](https://atom.io/).
@@ -47,5 +47,3 @@ The commands we are going to use are
 \timing [on|off]       toggle timing of commands (currently off)
 \h [NAME]              help on syntax of SQL commands, * for all commands
 ```
-
-
