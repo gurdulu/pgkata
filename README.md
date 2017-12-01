@@ -29,17 +29,22 @@ Start following the [steps](steps.md).
 
 __psql__ is a very powerful tool. You can have a look at the options with the command `psql --help`.
 
-The options we are going to use are
+Some useful options are
 
 ```text
 -c, --command=COMMAND    run only single command (SQL or internal) and exit
 -f, --file=FILENAME      execute commands from file, then exit
 -b, --echo-errors        echo failed commands
+-a, --echo-all           echo all input from script
+-b, --echo-errors        echo failed commands
+-e, --echo-queries       echo commands sent to server
+-E, --echo-hidden        display queries that internal commands generate
+-L, --log-file=FILENAME  send session log to file
 ```
 
 Connect to the database __pgkata__ (command `psql pgkata`) and type `\?` for seeing the __psql__ internal commands.
 
-The commands we are going to use are
+Some useful commands are
 
 ```text
 \d[S+]                 list tables, views, and sequences
