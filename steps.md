@@ -7,13 +7,18 @@
 * split the code in several files
 * try not to jump ahead
 
-> You should be able to execute the statements more than once without errors
-  and without changing the structure or the content of the database.
+<span style="background-color:#666666">_You should be able to execute the statements more than once without errors and
+without changing the structure or the content of the database._</span>
 
 ## Database schema
 
 Have a look at the [database diagram](assets/diagram.png) and try to imagine the
 database definition (primary keys, relationships, data types, constraints).
+
+> A primary key is a special relational database table column (or combination of columns)
+  designated to uniquely identify all table records. A primary key's main features
+  are: It must contain a unique value for each row of data. It cannot contain null values.
+  ([quote](https://www.techopedia.com/definition/5547/primary-key))
 
 ## Create the database __pgkata__
 
@@ -186,8 +191,8 @@ With the method you have used for parameterising the scripts above, create a
 script for inserting the values at [events.csv](csvs/events.csv) and
 [users.csv](csvs/users.csv).
 
-Use the [Python script](scripts/execute.py) for cycle over the CSV files and
-execute your statements.
+Use [this](scripts/execute.py) for cycling over the CSV files and executing your
+statements.
 
 Example
 

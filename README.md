@@ -1,7 +1,6 @@
 # PG Kata
 
-PG Kata is an exercise designed as introduction to
-[PostgreSQL](https://www.postgresql.org/).
+PG Kata is an exercise designed as introduction to [PostgreSQL](https://www.postgresql.org/).
 
 ## Pre-requisites
 
@@ -10,6 +9,7 @@ PG Kata is an exercise designed as introduction to
    [PostgreSQL: Downloads](https://www.postgresql.org/download/).
 2. Any editor, preferably with syntax highlighting.
    If you don't have one, install [Atom](https://atom.io/).
+3. Optional [pgAdmin](https://www.pgadmin.org/).
 
 ## How to proceed
 
