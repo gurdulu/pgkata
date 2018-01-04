@@ -139,3 +139,5 @@ the safest method of populating the tables.
 * can you execute the statement more than once?
 * what technique can you use for avoiding to delete the records if you need to
   apply the statement more than once?
+
+[Steps](steps.md) - [Populate database](steps-02.md)
